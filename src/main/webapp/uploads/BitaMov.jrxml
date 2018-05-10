@@ -1,0 +1,1031 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="BitaMov" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8b6f1513-03a9-4d34-b9e2-a36d0078c756">
+	<property name="ireport.zoom" value="1.2100000000000009"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="95"/>
+	<style name="table">
+		<box>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#6B91D5">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#CFD7E6">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#FAEBD7">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFE4BF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue()%2==0)]]></conditionExpression>
+			<style backcolor="#FFF8EF"/>
+		</conditionalStyle>
+	</style>
+	<style name="Celdas">
+		<pen lineColor="#CCCCCC"/>
+		<box>
+			<pen lineWidth="1.0" lineColor="#CCCCCC"/>
+			<topPen lineColor="#CCCCCC"/>
+			<leftPen lineColor="#CCCCCC"/>
+			<bottomPen lineColor="#CCCCCC"/>
+			<rightPen lineColor="#CCCCCC"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 5_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 6_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 7_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 8_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 9_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TH" mode="Opaque" backcolor="#0000FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_CH" mode="Opaque" backcolor="#BFBFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 10_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="Folio" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     tbl_Cedis_O.`Ced_Nombre` AS CedisOrigen,
+     tbl_Cedis_D.`Ced_Nombre` AS CedisDestino,
+     tbl_Cedis_D.`Ced_Domicilio` AS CedisDomicilio,
+     tbl_BitaMov.`Bitmova_Folio` AS Bitmova_Folio,
+     tbl_BitaMov.`Bitmova_Fecha` AS Bitmova_Fecha,
+     tbl_BitaMov.`Bitmova_Activo` AS Bitmova_Activo,
+     tbl_BitaMov.`Bitmova_Serie` AS Bitmova_Serie,
+     tbl_BitaMov.`Bitmova_Motivo` AS Bitmova_Motivo,
+     tbl_BitaMov.`Bitmova_Caracteristica` AS Bitmova_Caracteristica,
+     tbl_BitaMov.`Bitmova_Observaciones` AS Bitmova_Observaciones,
+     tbl_Empleados.`Empleado_Num` AS Empleado_Num,
+     tbl_Empleados.`Empleado_Nombre` AS Empleado_Nombre,
+     tbl_Empleados.`Empleado_Apellidos` AS Empleado_Apellidos,
+     tbl_Modelos.`Mod_Nombre` AS Mod_Nombre
+FROM
+     `tbl_Empleados` tbl_Empleados INNER JOIN `tbl_BitaMov` tbl_BitaMov ON tbl_Empleados.`Empleado_Id` = tbl_BitaMov.`Bitmova_EnvioIdEmpleado`
+     INNER JOIN `tbl_Modelos` tbl_Modelos ON tbl_BitaMov.`Bitmova_ModeloId` = tbl_Modelos.`Mod_Id`
+     INNER JOIN `tbl_Cedis` tbl_Cedis_D ON tbl_BitaMov.`Bitmova_DestinoId` = tbl_Cedis_D.`Ced_Id`
+     INNER JOIN `tbl_Cedis` tbl_Cedis_O ON tbl_BitaMov.`Bitmova_OrigenId` = tbl_Cedis_O.`Ced_Id`
+WHERE tbl_BitaMov.Bitmova_Folio=$P{Folio}]]>
+	</queryString>
+	<field name="CedisOrigen" class="java.lang.String"/>
+	<field name="CedisDestino" class="java.lang.String"/>
+	<field name="CedisDomicilio" class="java.lang.String"/>
+	<field name="Bitmova_Folio" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bitmova_Fecha" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bitmova_Activo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bitmova_Serie" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bitmova_Motivo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bitmova_Caracteristica" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Bitmova_Observaciones" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empleado_Num" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empleado_Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Empleado_Apellidos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Mod_Nombre" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="v_Empleado" class="java.lang.String">
+		<variableExpression><![CDATA[$F{Empleado_Num}+" "+ $F{Empleado_Nombre}+" "+$F{Empleado_Apellidos}]]></variableExpression>
+		<initialValueExpression><![CDATA[]]></initialValueExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="62" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="111" height="61" uuid="7a21f8a3-460f-4c44-8fc0-ca8d0f21b637"/>
+				<imageExpression><![CDATA["F:\\50098250\\Documents\\NetBeansProjects\\CarpetaTI\\src\\main\\resources\\Pepsi-logo.png"]]></imageExpression>
+			</image>
+			<elementGroup>
+				<rectangle>
+					<reportElement x="129" y="0" width="327" height="61" backcolor="#EEEAEA" uuid="d43dba0b-ebd1-4164-b93c-6b5c43402ed4"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="129" y="20" width="327" height="41" uuid="a433449e-ee60-4557-aa07-a6101eb5941e"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="10"/>
+					</textElement>
+					<text><![CDATA[Calle 60 Diagonal No. 501 Fracc Parque Industrial Yucatán C.P. 97300
+Mérida, Yucatán, México RFC IRE820805HA3
+Tel: 01 (999) 942-52-00 ó 24    Fax: 01 (999) 942-52-25]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="129" y="0" width="327" height="20" uuid="773ada68-2467-4241-8ffc-14b28190e2f7"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="15" isBold="true"/>
+					</textElement>
+					<text><![CDATA[INDUSTRIA DE REFRESCOS, S DE RL DE CV]]></text>
+				</staticText>
+			</elementGroup>
+			<frame>
+				<reportElement style="table 1" x="472" y="0" width="100" height="57" uuid="f033de1c-6532-4e38-9389-c69c93e383bb"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="100" height="31" backcolor="#0033FF" uuid="c28b08fc-fdbb-4327-9de6-8a86c8c88129"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="31" forecolor="#FFFFFF" uuid="fa4c9cc5-ad2a-4871-b50a-049498217b77"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MOVIMIENTO DE
+ACTIVOS FIJOS]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="31" width="100" height="20" uuid="67ca8ed6-2067-45d4-8f3f-5fa2fce487ec"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Folio}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="646" splitType="Stretch">
+			<frame>
+				<reportElement style="table 1" positionType="Float" x="0" y="8" width="100" height="35" backcolor="#0033FF" uuid="f83711b9-f70d-490b-ab63-f5c6d1117d97"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="100" height="15" backcolor="#0033FF" uuid="381ea249-f6fa-45ce-a0ec-f61a85b58f32"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="15" forecolor="#FFFFFF" uuid="c3a047d6-4677-4cf6-93c8-37ee75a26653"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="15" width="100" height="17" uuid="6dc20216-31bf-4d43-8ed3-343bca391257"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Fecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="table 1" x="129" y="9" width="443" height="185" uuid="d3e9a0e8-468b-471a-b99e-69226528947d"/>
+				<staticText>
+					<reportElement x="17" y="25" width="83" height="15" uuid="0e840a7a-f4ec-440a-b5d1-16417e1f6224"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Origen]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Celdas" x="17" y="40" width="168" height="20" uuid="dd36fd7d-8267-4e54-b489-8bd5a0f3baae"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CedisOrigen}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="17" y="63" width="168" height="15" uuid="ae4054aa-e5ca-4aa6-b348-a7e6ae4d588b"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Destino]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Celdas" x="17" y="78" width="168" height="20" uuid="d614c14e-0955-4693-bdc3-e2ea1e5c4396"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CedisDestino}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="17" y="103" width="83" height="15" uuid="cfccb65a-39f1-49c5-a3b7-e00c7578e2b6"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Domicilio]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Celdas" x="17" y="116" width="168" height="53" uuid="5126342a-6e2f-4b49-b554-32e8c51c5e9d"/>
+					<textElement textAlignment="Left">
+						<font fontName="Calibri" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CedisDomicilio}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="214" y="25" width="100" height="15" uuid="66796f64-891d-46e0-b5da-2692f0b520e1"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[No. de Sinca]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="50" width="100" height="15" uuid="f8ff1f62-f0f4-4878-8d6c-038ef73e2044"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Medio de Envio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="25" width="114" height="20" uuid="48868852-460b-4341-87b8-46e817478dec"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="76" width="100" height="15" uuid="53fc6996-f5cd-4e73-a9cc-c73d373b0da9"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Placas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="50" width="114" height="20" uuid="96136766-1bb7-4590-b541-e974792011ca"/>
+					<text><![CDATA[FLETE INTERNO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="76" width="114" height="20" uuid="0556f528-f195-470a-aea6-3965e0bc6ead"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="100" width="214" height="15" backcolor="#CC0099" uuid="bbb7f85f-f20f-4657-958d-67242c15d513"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Firma y Nombre del Chofer]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="214" y="115" width="214" height="42" uuid="6275463f-4a05-41ee-bbc4-a71f8516bd3b"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="161" width="100" height="20" uuid="d5700c57-010f-4e63-8dbb-9af81484b8f7"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Fecha de Salida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="161" width="114" height="20" uuid="04182139-5c24-45dd-b6b9-082be1360cfe"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="0" width="443" height="18" backcolor="#0033FF" uuid="c4adf391-6533-49e9-947e-c8bcfa018b18"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="17" y="0" width="411" height="18" forecolor="#FFFFFF" uuid="d2fb70cc-bd3c-470b-82d6-1948dd54e7c0"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Calibri" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[S A L I D A]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="table 1" x="0" y="49" width="111" height="141" uuid="d1474b3e-b2ff-469e-aba3-fed40ec9007b"/>
+				<staticText>
+					<reportElement x="21" y="108" width="90" height="15" uuid="d7172a42-523c-43d5-a139-d8df9c21e827"/>
+					<text><![CDATA[Definitivo]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="4" y="109" width="14" height="14" uuid="44a3b421-18f8-4608-9660-cc5ee628d6eb"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="0" width="111" height="14" backcolor="#0033FF" uuid="ad1b1d06-dc0b-492c-9f9c-02325b7a9662"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="16" width="14" height="14" uuid="25af58cd-8db8-40b8-be06-120a7cd54ff5"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="55" width="14" height="14" uuid="0a9fa10d-2b17-436c-9535-bb438d3348d5"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="36" width="14" height="14" uuid="140313f2-5129-4b59-8438-961c4925880a"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="76" width="14" height="14" uuid="7a4afa75-0b60-474e-b513-10cd60b78d05"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="21" y="15" width="90" height="15" uuid="1c9579c7-d731-4657-b0f1-88bf0a93a2fe"/>
+					<text><![CDATA[Maquinaria]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="15" forecolor="#FFFFFF" uuid="f1f47197-9d93-4841-81b7-ebf9bd06b4fe"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipo de Activo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="21" y="35" width="83" height="15" uuid="1c61070f-7c5a-43bb-966a-478ef4877cf2"/>
+					<text><![CDATA[Eq. de Transporte]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="21" y="76" width="90" height="15" uuid="15a1e92a-375b-4f8d-889e-4be13da72915"/>
+					<text><![CDATA[Mobiliario Oficina]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="21" y="56" width="90" height="15" uuid="bf8de031-fa31-4f2d-a1e6-175acae0c6d0"/>
+					<text><![CDATA[Eq. de Computo]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="93" width="111" height="14" backcolor="#0033FF" uuid="6d669546-bf65-4829-8356-63ad107ccd3f"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="21" y="124" width="90" height="15" uuid="c5eb8819-769c-438b-9308-5f64dc3748cc"/>
+					<text><![CDATA[Temporal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="93" width="100" height="15" forecolor="#FFFFFF" uuid="6889997d-9327-4212-9226-a544218a8c55"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipo de Movimiento]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="4" y="125" width="14" height="14" uuid="d401a0c5-76fc-4bf9-b3ab-320643c09acf"/>
+				</rectangle>
+				<staticText>
+					<reportElement stretchType="RelativeToBandHeight" x="9" y="56" width="14" height="14" uuid="872544ab-9c19-4d05-ab4c-75c08659aea8"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+				<staticText>
+					<reportElement stretchType="RelativeToBandHeight" x="9" y="110" width="14" height="14" uuid="b2acdfdb-4448-411b-9126-c925adfa78af"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="0" y="200" width="179" height="83" backcolor="#0033FF" uuid="91535456-4eba-4230-a4fa-81b76d8532c6"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="179" height="15" backcolor="#0033FF" uuid="90c4dddf-bd0e-40b5-a84f-6a68afc705f8"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="179" height="15" forecolor="#FFFFFF" uuid="6449dbf5-2459-4945-9d54-e1ca124e2d85"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[No. de Activo(FA)]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Celdas" x="0" y="15" width="179" height="68" uuid="92dbcfdf-d1c6-4060-ac6c-98d3c8b84098"/>
+					<textElement>
+						<font fontName="Calibri"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Activo}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="190" y="200" width="166" height="83" backcolor="#0033FF" uuid="4989779c-3ed4-4e40-9ac3-a76cee7f1f37"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="166" height="15" backcolor="#0033FF" uuid="b29b980a-7ae2-4b7c-8baf-e170b178e3c9"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="166" height="15" forecolor="#FFFFFF" uuid="d5341e54-62ed-489a-b0bc-1b8872ebca05"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Modelo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="15" width="166" height="68" uuid="da835402-2d3e-4ee6-9de5-a6caf0a76be2"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" isStrikeThrough="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Mod_Nombre}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="369" y="200" width="202" height="83" backcolor="#0033FF" uuid="65061efe-55e9-4bd1-815c-891e366ed18a"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="202" height="15" backcolor="#0033FF" uuid="9e8ecafe-9280-4879-a505-fbb6cb3715d8"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="202" height="15" forecolor="#FFFFFF" uuid="7958bd1a-6ac0-4a32-9082-bb108259adb8"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[No. de Serie]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="15" width="202" height="68" uuid="963477a7-cbd3-46fe-884a-e5e7f0c542a8"/>
+					<textElement>
+						<font fontName="Calibri"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Serie}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="0" y="285" width="179" height="35" backcolor="#0033FF" uuid="a275d2eb-e1cd-452d-a294-bc0644cb679d"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="179" height="15" backcolor="#0033FF" uuid="5d22cb6d-b3a6-4bc1-8199-a9973b940681"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="179" height="15" forecolor="#FFFFFF" uuid="87e86d24-8895-40d5-aff3-027e2903aeb9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Caracteristicas]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="15" width="179" height="20" uuid="8ed598c0-922c-4dc3-b7c4-4c1402a20dd5"/>
+					<textElement>
+						<font fontName="Calibri" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Caracteristica}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="190" y="285" width="166" height="35" backcolor="#0033FF" uuid="233ff476-342c-4305-8dc6-23dea01b6040"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="166" height="15" backcolor="#0033FF" uuid="48c28a1a-2fe7-43a8-860d-3863856afdbc"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="166" height="15" forecolor="#FFFFFF" uuid="44db76fd-cfd9-47fb-8a5b-59d9a10c4bd9"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Persona a quien se envia]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="15" width="166" height="20" uuid="5b956bb6-7ede-418d-a305-7ff159b08e9e"/>
+					<textFieldExpression><![CDATA[$V{v_Empleado}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="369" y="285" width="202" height="35" backcolor="#0033FF" uuid="a6d589f0-e80a-4a73-9322-2fb01a5cc875"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="202" height="15" backcolor="#0033FF" uuid="a5cfadc3-2a41-4228-abee-bc32f8aa96db"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="202" height="15" forecolor="#FFFFFF" uuid="4aaafaa4-588b-4c31-8ba2-9386451402b2"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Motivo]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="3" y="15" width="199" height="20" uuid="948b34df-2322-4171-9216-e4c86c66a53f"/>
+					<textElement>
+						<font fontName="Calibri"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Motivo}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="0" y="322" width="179" height="56" backcolor="#0033FF" uuid="7ac2530f-b8cd-49d7-a3e7-13916ce0b903"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="179" height="15" backcolor="#0033FF" uuid="2b9177ec-dd1f-460e-9b28-b0eb9969b438"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="179" height="15" forecolor="#FFFFFF" uuid="1bb55b90-7ae4-4693-a194-9bf75d7bafbb"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Abel J. Ramos Nakamura]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="184" y="322" width="180" height="56" backcolor="#0033FF" uuid="ae65e1fb-6644-4be8-b45a-85d33d7330ee"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="180" height="15" backcolor="#0033FF" uuid="ce798683-39b2-4e51-a883-910810e2fc95"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="180" height="15" forecolor="#FFFFFF" uuid="a7aa9241-2f3a-4aae-9291-dac0e26bab76"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Federico Caceres]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="Celdas" positionType="Float" x="369" y="322" width="202" height="56" backcolor="#0033FF" uuid="a95ef104-fc80-47ed-9301-f90a76dcd472"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="202" height="15" backcolor="#0033FF" uuid="3df57bd1-ec5e-4028-97d5-ca5326ce504b"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="202" height="15" forecolor="#FFFFFF" uuid="2b01cdc6-ad56-4de9-9042-20e5bd69f001"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Hugo Fajardo]]></text>
+				</staticText>
+			</frame>
+			<line>
+				<reportElement x="0" y="382" width="571" height="1" uuid="019124c8-3bef-4324-b18f-734c2a7fe8dc"/>
+				<graphicElement>
+					<pen lineStyle="Dashed" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<frame>
+				<reportElement x="128" y="388" width="328" height="62" uuid="1a120e91-08cd-4e15-bb98-81c0897a75cf"/>
+				<rectangle>
+					<reportElement x="1" y="1" width="327" height="61" backcolor="#EEEAEA" uuid="b4196e20-3e60-492a-82e9-c3f707f6658a"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="1" width="327" height="20" uuid="ec2c6cfe-0b79-4cc0-9390-d258eb2b0b16"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="15" isBold="true"/>
+					</textElement>
+					<text><![CDATA[INDUSTRIA DE REFRESCOS, S DE RL DE CV]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="21" width="327" height="41" uuid="19e9cccc-d4e5-4c7f-a073-1cb48723a35e"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="10"/>
+					</textElement>
+					<text><![CDATA[Calle 60 Diagonal No. 501 Fracc Parque Industrial Yucatán C.P. 97300
+Mérida, Yucatán, México RFC IRE820805HA3
+Tel: 01 (999) 942-52-00 ó 24    Fax: 01 (999) 942-52-25]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="table 1" x="472" y="389" width="100" height="57" uuid="89dd895f-518f-42d4-805c-716fd08a1b8f"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="100" height="31" backcolor="#0033FF" uuid="1cee141c-5ffc-4d9f-baac-6834150c5647"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="31" forecolor="#FFFFFF" uuid="ddff8050-d81d-4f97-88be-e7eb3a70dfea"/>
+					<textElement textAlignment="Center">
+						<font size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[MOVIMIENTO DE
+ACTIVOS FIJOS]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="31" width="100" height="20" uuid="f1ed3dda-2530-4260-b02f-71b8a097c0e3"/>
+					<textElement textAlignment="Center">
+						<font fontName="Arial" size="12" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Folio}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="0" y="388" width="111" height="61" uuid="46838935-b53e-4011-97b9-37658cbc69f8"/>
+				<imageExpression><![CDATA["F:\\50098250\\Documents\\NetBeansProjects\\CarpetaTI\\src\\main\\resources\\Pepsi-logo.png"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement style="table 1" positionType="Float" x="4" y="455" width="100" height="35" backcolor="#0033FF" uuid="c252458a-c502-4912-bb6f-87a61b532f64"/>
+				<rectangle>
+					<reportElement x="0" y="0" width="100" height="15" backcolor="#0033FF" uuid="06732ea4-440b-4926-8a8b-e404ea57043e"/>
+					<graphicElement>
+						<pen lineWidth="1.25" lineColor="#FCFCEB"/>
+					</graphicElement>
+				</rectangle>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="15" forecolor="#FFFFFF" uuid="cffa9114-3ba6-4753-a641-fdfe64d1a9ab"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="0" y="15" width="100" height="17" uuid="963f0d89-0d9a-4bf3-80e8-a926cb1d0f92"/>
+					<textElement textAlignment="Center">
+						<font fontName="Calibri" size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Bitmova_Fecha}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement style="table 1" x="4" y="496" width="111" height="141" uuid="d7e0dafd-ab09-4cbf-bc09-faa24b3de944"/>
+				<staticText>
+					<reportElement x="21" y="108" width="90" height="15" uuid="01786f28-28ae-4c74-945f-57f5976c5ac6"/>
+					<text><![CDATA[Definitivo]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="4" y="109" width="14" height="14" uuid="9de8a5db-a3d2-45c9-9a0d-d26100859d49"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="0" y="0" width="111" height="14" backcolor="#0033FF" uuid="605994fa-488c-4318-9aa6-64bb697459e2"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="16" width="14" height="14" uuid="76e4fc9d-2704-42ac-858a-e4aaac0acd5a"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="55" width="14" height="14" uuid="0992f5cc-f86b-43dc-a8ff-1891ccd39579"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="36" width="14" height="14" uuid="ae156fc7-6387-45ff-bc70-3b903c39fb4d"/>
+				</rectangle>
+				<rectangle>
+					<reportElement x="4" y="76" width="14" height="14" uuid="e1003ff7-d568-4f6b-bb81-67d1afe74428"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="21" y="15" width="90" height="15" uuid="3e6c39dd-66bd-42eb-abf6-6bb107827e0a"/>
+					<text><![CDATA[Maquinaria]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="0" width="100" height="15" forecolor="#FFFFFF" uuid="22a69028-7923-4fd3-8dca-5e3a3dc3f42f"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipo de Activo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="21" y="35" width="90" height="15" uuid="b924ee66-1bbd-4d73-a105-0b2c39035977"/>
+					<text><![CDATA[Eq. de Transporte]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="21" y="76" width="90" height="15" uuid="7319cde1-e397-4ead-87a9-4ec88de47dd6"/>
+					<text><![CDATA[Mobiliario Oficina]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="21" y="56" width="90" height="15" uuid="fe19fb0c-af04-4aa6-836b-79bf4dc6c0fa"/>
+					<text><![CDATA[Eq. de Computo]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="93" width="111" height="14" backcolor="#0033FF" uuid="24e71dec-b880-4798-b944-63cf04c18e27"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="21" y="124" width="90" height="15" uuid="c2bf5adf-4989-40e5-a498-ac89e53ff626"/>
+					<text><![CDATA[Temporal]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="93" width="111" height="15" forecolor="#FFFFFF" uuid="bf907908-9195-4877-b8fa-d7f0c6b4df85"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Tipo de Movimiento]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="4" y="125" width="14" height="14" uuid="a037f6aa-4ea1-4fae-b298-7c5169e102d0"/>
+				</rectangle>
+				<staticText>
+					<reportElement stretchType="RelativeToBandHeight" x="7" y="111" width="14" height="14" uuid="e4ccfb27-bf8d-4e6e-b520-607bcf454f2f"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[X]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement style="table 1" x="129" y="455" width="443" height="185" uuid="6cfcdf82-abb8-4ad7-a6b5-c69bbbdae140"/>
+				<staticText>
+					<reportElement x="17" y="25" width="83" height="15" uuid="7f3e137f-8ebe-4984-ba77-3110ea76ad83"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Origen]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Celdas" x="17" y="40" width="168" height="20" uuid="804f038c-8306-4b6d-b67d-4b4ac10de860"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11" isUnderline="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CedisOrigen}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="17" y="63" width="168" height="15" uuid="96403fda-9b25-438a-8688-9b408b9b3f73"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Destino]]></text>
+				</staticText>
+				<textField>
+					<reportElement style="Celdas" x="17" y="78" width="168" height="20" uuid="2ef463a1-7678-4fdd-8f68-718df52ab562"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CedisDestino}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="17" y="103" width="168" height="15" uuid="aba8714a-6748-4ef1-bb93-427e4e9ed3fb"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Condiciones del Activo]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="25" width="100" height="15" uuid="b7c03984-236e-463e-a028-d16bf01d09f4"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[No. de Sinca]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="50" width="100" height="15" uuid="45bc8359-a8fd-47c4-96d0-b503868a68d0"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Medio de Envio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="25" width="114" height="20" uuid="f96ed1d2-5294-42bf-834f-48e889bae2c9"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="76" width="100" height="15" uuid="4b698d3f-0c20-4bdf-82e5-58047e9cf769"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Placas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="50" width="114" height="20" uuid="aa015f6d-5010-4215-a482-e9a18f0b5375"/>
+					<text><![CDATA[FLETE INTERNO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="76" width="114" height="20" uuid="9e38eafd-5778-412a-97ba-8e052c160603"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="100" width="214" height="15" backcolor="#CC0099" uuid="108c5909-f5d7-4932-9eee-35787aab2658"/>
+					<textElement textAlignment="Center" verticalAlignment="Top">
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Firma y Nombre de Vigilancia]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="214" y="115" width="214" height="42" uuid="15a1268f-e88c-42f0-b3f0-a77c9cb79043"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="214" y="161" width="100" height="20" uuid="c861c269-5be7-4d35-b2a5-fd23ff0c448f"/>
+					<textElement>
+						<font fontName="Calibri" size="12" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Fecha de Entrada]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="314" y="161" width="114" height="20" uuid="3bf5b92c-ae68-4d45-b0ef-89e77a9b39f7"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement x="0" y="0" width="443" height="18" backcolor="#0033FF" uuid="5e7c6907-c04a-488b-b81b-e59c055fe96b"/>
+				</rectangle>
+				<staticText>
+					<reportElement x="17" y="0" width="411" height="18" forecolor="#FFFFFF" uuid="99b24c58-b1ad-41d3-8f00-4b3dce2e6106"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Calibri" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[S A L I D A]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Celdas" x="17" y="118" width="168" height="39" uuid="441cf977-2ef8-4924-83b6-e54d8cf28076"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

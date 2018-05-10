@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+	"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <constant name="struts.action.extension" value="action" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.configuration.xml.reload" value="true" />
+   
+    <!--<constant name="struts.enable.DynamicMethodInvocation" value="true"/>-->
+    
+    <package name="default" namespace="/" extends="struts-default">
+        
+        <action name="/" class="action.WelcomeUserAction" method="noAction">
+            <result name="success">/login.action</result>            
+        </action>
+        
+        <action name="login">
+            <result>/login.jsp</result>
+        </action>
+        
+        <action name="Welcome" class="action.WelcomeUserAction">
+            <result name="success">/welcome_user.jsp</result>            
+        </action>
+           <!--  
+        <action name="CatalogoMarcas" class="action.CatalogoMarcasAction">
+            <result name="success">/CatalogoMarcas.jsp</result>                                              
+        </action> 
+        
+         <action name="FrmEditMarca" class="action.CatalogoMarcasAction" method="FrmEditMarca">
+             <result name="FrmEditMarca">/FrmEditMarca.jsp</result>            
+         </action> 
+           -->
+        
+    </package>
+</struts>

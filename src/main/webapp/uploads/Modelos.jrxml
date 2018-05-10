@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Modelos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8591d0c1-633a-4876-ade2-f3719e6947c5">
+	<property name="ireport.zoom" value="1.3310000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     tblModelos.`Mod_Id` AS tblModelos_Mod_Id,
+     tblModelos.`Mod_Nombre` AS tblModelos_Mod_Nombre,
+     tblMarcas.`Marca_Nombre` AS tblMarcas_Marca_Nombre
+FROM
+     `tbl_Marcas` tblMarcas INNER JOIN `tbl_Modelos` tblModelos ON tblMarcas.`Marca_Id` = tblModelos.`Marca_id`]]>
+	</queryString>
+	<field name="tblModelos_Mod_Id" class="java.lang.Integer"/>
+	<field name="tblModelos_Mod_Nombre" class="java.lang.String"/>
+	<field name="tblMarcas_Marca_Nombre" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#079CE7" uuid="fbb03028-a743-4c67-8c65-9c5d3ae4a936"/>
+				<staticText>
+					<reportElement x="235" y="20" width="360" height="43" forecolor="#FFFFFF" uuid="af065dc0-d93a-4f65-bc8d-2cec1dd5849e"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Reporte de Modelos]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="72" width="180" height="20" forecolor="#FFFFFF" uuid="d7f3daa5-880e-4591-a574-e2cf920bdbaa"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[tblModelos]]></text>
+				</staticText>
+				<image scaleImage="FillFrame">
+					<reportElement stretchType="RelativeToBandHeight" x="19" y="10" width="120" height="72" uuid="fa687813-048f-43d6-9c8f-362fe60e98d6"/>
+					<imageExpression><![CDATA["F:\\50098250\\Documents\\NetBeansProjects\\AppTI\\src\\Images\\Pepsi-logo.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="87566cc7-e56f-420e-ad0f-54442dc9e4ba"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="152" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f19d7f7d-38c3-486e-a806-75e121ad9901"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="152" y="0" width="223" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="42c4a88b-b883-4173-b5d7-c77cb6f1cb0d"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="375" y="0" width="179" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="c1eb691a-abcc-48f5-93a8-4c8378ff792e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Marca]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-1" y="24" width="555" height="1" uuid="41d73ad6-eae6-4bec-b2b6-40b2f8eaaa80"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="152" height="20" uuid="9851b363-1ec3-482c-8862-286a348a149b"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblModelos_Mod_Id}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="152" y="0" width="223" height="20" uuid="9ffa4e19-33a8-4512-9235-2348ddfc1edc"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblModelos_Mod_Nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="0" width="179" height="20" uuid="aab7ee06-fbdd-4a4d-9917-7480d71aff63"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tblMarcas_Marca_Nombre}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="d7fa04ef-106d-4b63-9f5e-00e2b7e3602f"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="8a323a3b-5de8-46cb-bddf-c2cbd4be1a00"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="0" y="4" width="100" height="13" uuid="faf5fa6d-ed8f-4cd7-875d-853e20f32b93"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
