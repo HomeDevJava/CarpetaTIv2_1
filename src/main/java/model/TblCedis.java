@@ -119,7 +119,7 @@ public class TblCedis implements java.io.Serializable, Crud {
     public static List<TblCedis> selectAll() {
         Session sesion = HibernateHelper.getSessionFactory().openSession();
         sesion.getTransaction().begin();
-        List<TblCedis> lista = sesion.createQuery("from TblCedis").list();
+        List<TblCedis> lista = sesion.createQuery("from TblCedis t").list();
         sesion.getTransaction().commit();
         return lista;
     }

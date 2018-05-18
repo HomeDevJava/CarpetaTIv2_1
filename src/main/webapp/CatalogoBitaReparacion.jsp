@@ -56,13 +56,14 @@
     <main role="main">
         <div class="container-fluid">
 
-            <div class="jumbotron ">
+            <div class="jumbotron shadow-sm">
                 <div class="container-fluid">                       
                     <h1 class="text-info"> Reparaciones HH & PRN </h1>                        
                     <p>Catalogo de Reparaciones</p>   
                 </div>
             </div>
 
+            
             <div>
                 <div class="form-inline my-2">
                     <div class="col-3">
@@ -70,23 +71,42 @@
                         <button id="btninsertar" class=" btn btn-md btn-success my-2 fa fa-plus-circle" data-toggle="modal" data-target="#myModalDetalles" value="${insertar}" > Nuevo Registro</button> 
                         <!--<a id="insert" class=" btn btn-md btn-success my-2" data-toggle="modal" data-target="#myModalInsert" value="jjj" > Insertar Registro</a> -->  
                     </div>
-                    <div class="col-5">
+                     
+                    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">                        
+                        <form class="form-group form-inline my-auto my-lg-0" action="CatalogoBitaReparacion.action">
+                            <label class="h5" for="IdSerie" >Serie </label>
+                            <s:textfield name="IdSerie" class="form-control form-control-sm mx-sm-2"/>
+                            <label class="h5" for="IdStatus" >Status </label>
+                            <s:select class=" form-control  form-control-sm mx-sm-2" name="IdStatus" 
+                                      list="listadeStatus" listKey="idStatus" listValue="descripcion"
+                                      headerKey="0" headerValue="Seleccionar" value="0"/>
+                            <label class="h5" for="IdModelo" >Modelo </label>
+                            <s:select class=" form-control  form-control-sm mx-sm-2" name="IdModelo" 
+                                      list="listadeModelos" listKey="modId" listValue="modNombre"
+                                      headerKey="0" headerValue="Seleccionar"/>
+                            <label class="h5" for="cedis" >Cedis</label>
+                            <s:select class=" form-control  form-control-sm mx-sm-2" name="IdCedis" 
+                                      list="listadeCedis" listKey="cedId" listValue="cedNombre"
+                                      headerKey="0" headerValue="Seleccionar" value="0"/>
+                            <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+                            <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"><span class="fa fa-search"></span>Buscar</button>
+                        </form>
                     </div>
                 </div>
                 
                  <display:table class="table table-striped table-hover table-sm"  name="listadeBitaReparacion"  id="listadeBitaReparacion" 
                      pagesize="25" export="true" requestURI="/CatalogoBitaReparacion.action" >                     
-                     <display:column property="idFolio" title="ID" />
-                     <display:column property="serie" title="Serie"/>        
-                     <display:column property="tblModelos.modNombre" title="Modelo" />
-                     <display:column property="tblCedis.cedNombre" title="Cedis" />  
-                     <display:column property="fecInitramite"  title="Tramite"/>
-                     <display:column property="fecEnvio"  title="Enviado"/>
-                     <display:column property="fecRetorno"  title="Retorno"/>
-                     <display:column property="tblStatusByIdStatus.descripcion"  title="Status"/>
-                     <display:column property="observaciones"  title="Observacion"/>
-                     <display:column property="ro"  title="#RO"/>
-                     <display:column title="Accion" headerClass="col-1">                          
+                     <display:column property="idFolio" title="ID" headerClass="bg-primary" />
+                     <display:column property="serie" title="Serie" headerClass="bg-primary"/>        
+                     <display:column property="tblModelos.modNombre" title="Modelo" headerClass="bg-primary" />
+                     <display:column property="tblCedis.cedNombre" title="Cedis" headerClass="bg-primary"/>  
+                     <display:column property="fecInitramite"  title="Tramite" headerClass="bg-primary"/>
+                     <display:column property="fecEnvio"  title="Enviado" headerClass="bg-primary"/>
+                     <display:column property="fecRetorno"  title="Retorno" headerClass="bg-primary"/>
+                     <display:column property="tblStatusByIdStatus.descripcion"  title="Status" headerClass="bg-primary"/>
+                     <display:column property="observaciones"  title="Observacion" headerClass="bg-primary"/>
+                     <display:column property="ro"  title="#RO" headerClass="bg-primary"/>
+                     <display:column title="Accion" headerClass="bg-primary ">                          
                         <c:url value="DeleteBitaReparacion.action?Id=${listadeBitaReparacion.idFolio}" var="delBitaRepara"/>
                         <c:url value="FrmEditBitaReparacion.action?Id=${listadeBitaReparacion.idFolio}" var="editBitaRepara"/>
                         <button value="${editBitaRepara}" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#myModalDetalles"><span class="fa fa-edit"></span></a></button>                       

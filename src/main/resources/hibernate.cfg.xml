@@ -67,5 +67,6 @@ Contributor(s):
     <mapping class="model.TblCedis" file="" jar="" package="" resource=""/>
     <mapping class="model.TblEmpleados" file="" jar="" package="" resource=""/>
     <mapping class="model.BitaReparacion" file="" jar="" package="" resource=""/>
+    <mapping class="model.TblBitaMov"/>
   </session-factory>
 </hibernate-configuration>

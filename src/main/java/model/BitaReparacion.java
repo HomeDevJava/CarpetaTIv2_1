@@ -1,12 +1,9 @@
 package model;
 
 import java.io.Serializable;
-import java.util.Date;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 import javax.persistence.*;
 import static javax.persistence.GenerationType.IDENTITY;
-import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.criterion.Order;
@@ -91,18 +88,18 @@ public class BitaReparacion implements Crud, Serializable {
         this.fecInitramite = java.sql.Date.valueOf(fecInitramite);
         this.ro = ro;
     }
-    
+
     public BitaReparacion(Integer tblCedis, Integer tblEmpleados, Integer tblModelos, Integer tblStatusByIdStatus, Integer tblStatusByIdStatusActa, Integer tblStatusByIdStatusDescuento,
             String serie, String fallaDetalle, Integer idTipoProblema, String fecEnvio, String fecRetorno, String observaciones, String fecInitramite, String ro) {
-        this.tblCedis =TblCedis.buscarxClave(tblCedis);
+        this.tblCedis = TblCedis.buscarxClave(tblCedis);
         this.tblEmpleados = TblEmpleados.buscarxClave(tblEmpleados);
         this.tblModelos = TblModelos.buscarxClave(tblModelos);
-        this.tblStatusByIdStatus =TblStatus.buscarxClave(tblStatusByIdStatus);
-        this.tblStatusByIdStatusActa =TblStatus.buscarxClave(tblStatusByIdStatusActa);
-        this.tblStatusByIdStatusDescuento =TblStatus.buscarxClave(tblStatusByIdStatusDescuento);
+        this.tblStatusByIdStatus = TblStatus.buscarxClave(tblStatusByIdStatus);
+        this.tblStatusByIdStatusActa = TblStatus.buscarxClave(tblStatusByIdStatusActa);
+        this.tblStatusByIdStatusDescuento = TblStatus.buscarxClave(tblStatusByIdStatusDescuento);
         this.serie = serie;
         this.fallaDetalle = fallaDetalle;
-        this.idTipoProblema =TblStatus.buscarxClave(idTipoProblema);
+        this.idTipoProblema = TblStatus.buscarxClave(idTipoProblema);
         this.fecEnvio = java.sql.Date.valueOf(fecEnvio);
         this.fecRetorno = java.sql.Date.valueOf(fecRetorno);
         this.observaciones = observaciones;
@@ -132,130 +129,38 @@ public class BitaReparacion implements Crud, Serializable {
         return Objects.equals(this.idFolio, other.idFolio);
     }
 
-    
-
-    public Integer getIdFolio() {
-        return this.idFolio;
-    }
-
-    public void setIdFolio(Integer idFolio) {
-        this.idFolio = idFolio;
-    }
-
-    public TblCedis getTblCedis() {
-        return this.tblCedis;
-    }
-
-    public void setTblCedis(TblCedis tblCedis) {
-        this.tblCedis = tblCedis;
-    }
-
-    public TblEmpleados getTblEmpleados() {
-        return this.tblEmpleados;
-    }
-
-    public void setTblEmpleados(TblEmpleados tblEmpleados) {
-        this.tblEmpleados = tblEmpleados;
-    }
-
-    public TblModelos getTblModelos() {
-        return this.tblModelos;
-    }
-
-    public void setTblModelos(TblModelos tblModelos) {
-        this.tblModelos = tblModelos;
-    }
-
-    public TblStatus getTblStatusByIdStatus() {
-        return this.tblStatusByIdStatus;
-    }
-
-    public void setTblStatusByIdStatus(TblStatus tblStatusByIdStatus) {
-        this.tblStatusByIdStatus = tblStatusByIdStatus;
-    }
-
-    public TblStatus getTblStatusByIdStatusActa() {
-        return this.tblStatusByIdStatusActa;
-    }
-
-    public void setTblStatusByIdStatusActa(TblStatus tblStatusByIdStatusActa) {
-        this.tblStatusByIdStatusActa = tblStatusByIdStatusActa;
-    }
-
-    public TblStatus getTblStatusByIdStatusDescuento() {
-        return this.tblStatusByIdStatusDescuento;
-    }
-
-    public void setTblStatusByIdStatusDescuento(TblStatus tblStatusByIdStatusDescuento) {
-        this.tblStatusByIdStatusDescuento = tblStatusByIdStatusDescuento;
-    }
-
-    public String getSerie() {
-        return this.serie;
-    }
-
-    public void setSerie(String serie) {
-        this.serie = serie;
-    }
-
-    public String getFallaDetalle() {
-        return this.fallaDetalle;
-    }
-
-    public void setFallaDetalle(String fallaDetalle) {
-        this.fallaDetalle = fallaDetalle;
-    }
-
-    public TblStatus getIdTipoProblema() {
-        return this.idTipoProblema;
-    }
-
-    public void setIdTipoProblema(TblStatus idTipoProblema) {
-        this.idTipoProblema = idTipoProblema;
-    }
-
-    public Date getFecEnvio() {
-        return this.fecEnvio;
-    }
-
-    public void setFecEnvio(String fecEnvio) {
-        this.fecEnvio = java.sql.Date.valueOf(fecEnvio);
-    }
-
-    public Date getFecRetorno() {
-        return this.fecRetorno;
-    }
-
-    public void setFecRetorno(String fecRetorno) {
-        this.fecRetorno = java.sql.Date.valueOf(fecRetorno);
-    }
-
-    public String getObservaciones() {
-        return this.observaciones;
-    }
-
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-    public Date getFecInitramite() {
-        return this.fecInitramite;
-    }
-
-    public void setFecInitramite(String fecInitramite) {
-        this.fecInitramite = java.sql.Date.valueOf(fecInitramite);
-    }
-
-    public String getRo() {
-        return this.ro;
-    }
-
-    public void setRo(String ro) {
-        this.ro = ro;
-    }
+    public Integer getIdFolio() { return this.idFolio; }
+    public void setIdFolio(Integer idFolio) { this.idFolio = idFolio; }
+    public TblCedis getTblCedis() { return this.tblCedis;}
+    public void setTblCedis(TblCedis tblCedis) { this.tblCedis = tblCedis; }
+    public TblEmpleados getTblEmpleados() { return this.tblEmpleados; }
+    public void setTblEmpleados(TblEmpleados tblEmpleados) { this.tblEmpleados = tblEmpleados; }
+    public TblModelos getTblModelos() { return this.tblModelos; }
+    public void setTblModelos(TblModelos tblModelos) { this.tblModelos = tblModelos; }
+    public TblStatus getTblStatusByIdStatus() { return this.tblStatusByIdStatus; }
+    public void setTblStatusByIdStatus(TblStatus tblStatusByIdStatus) {this.tblStatusByIdStatus = tblStatusByIdStatus;}
+    public TblStatus getTblStatusByIdStatusActa() {return this.tblStatusByIdStatusActa;}
+    public void setTblStatusByIdStatusActa(TblStatus tblStatusByIdStatusActa) {this.tblStatusByIdStatusActa = tblStatusByIdStatusActa; }
+    public TblStatus getTblStatusByIdStatusDescuento() {return this.tblStatusByIdStatusDescuento; }
+    public void setTblStatusByIdStatusDescuento(TblStatus tblStatusByIdStatusDescuento) {this.tblStatusByIdStatusDescuento = tblStatusByIdStatusDescuento;}
+    public String getSerie() { return this.serie; }
+    public void setSerie(String serie) { this.serie = serie;}
+    public String getFallaDetalle() {return this.fallaDetalle;}
+    public void setFallaDetalle(String fallaDetalle) {this.fallaDetalle = fallaDetalle;}
+    public TblStatus getIdTipoProblema() {return this.idTipoProblema;}
+    public void setIdTipoProblema(TblStatus idTipoProblema) {this.idTipoProblema = idTipoProblema;}
+    public Date getFecEnvio() {return this.fecEnvio;}
+    public void setFecEnvio(String fecEnvio) {this.fecEnvio = java.sql.Date.valueOf(fecEnvio);}
+    public Date getFecRetorno() {return this.fecRetorno;}
+    public void setFecRetorno(String fecRetorno) {this.fecRetorno = java.sql.Date.valueOf(fecRetorno);}
+    public String getObservaciones() {return this.observaciones;}
+    public void setObservaciones(String observaciones) {this.observaciones = observaciones;}
+    public Date getFecInitramite() { return this.fecInitramite; }
+    public void setFecInitramite(String fecInitramite) {this.fecInitramite = java.sql.Date.valueOf(fecInitramite);}
+    public String getRo() { return this.ro;}
+    public void setRo(String ro) { this.ro = ro; }
 
     public static List<BitaReparacion> selectAll() {
-        
         Session sesion = HibernateHelper.getSessionFactory().openSession();
         sesion.getTransaction().begin();
         List<BitaReparacion> lista = sesion.createCriteria(BitaReparacion.class).addOrder(Order.asc("idFolio")).list();
@@ -264,28 +169,27 @@ public class BitaReparacion implements Crud, Serializable {
     }
 
     public static List<BitaReparacion> selectAllP(Integer offset, Integer noOfRecords) {
-        List<BitaReparacion> lista = null;
-        Session sesion = null;
-        try {
-            sesion = HibernateHelper.getSessionFactory().openSession();
-            sesion.beginTransaction();
-            lista = sesion.createCriteria(BitaReparacion.class).setFirstResult(offset).setMaxResults(noOfRecords).list();
-            
-        } catch (HibernateException h) {
-            sesion.getTransaction().rollback();
-            sesion.close();
-            System.out.println("Error Hibernate: " + h.toString());
-        }finally{
-            sesion.getTransaction().commit();
-            return lista;
-        }
-
-    }
-    
-    public static BitaReparacion buscarxClave(Integer Id){
-        Session sesion= HibernateHelper.getSessionFactory().openSession();
+        Session sesion = HibernateHelper.getSessionFactory().openSession();
         sesion.beginTransaction();
-        BitaReparacion b= sesion.get(BitaReparacion.class, Id);
+        List<BitaReparacion> lista = sesion.createCriteria(BitaReparacion.class).setFirstResult(offset).setMaxResults(noOfRecords).list();
+        sesion.getTransaction().commit();
+        return lista;
+    }
+
+    public static BitaReparacion buscarxClave(Integer Id) {
+        Session sesion = HibernateHelper.getSessionFactory().openSession();
+        sesion.beginTransaction();
+        BitaReparacion b = sesion.get(BitaReparacion.class, Id);
+        sesion.getTransaction().commit();
+        return b;
+    }
+
+    public static List<BitaReparacion> buscarxStatus(Integer Id) {
+        Session sesion = HibernateHelper.getSessionFactory().openSession();
+        sesion.beginTransaction();
+        List<BitaReparacion> b = sesion.createQuery("from BitaReparacion b where b.tblStatusByIdStatus.idStatus=:criteria")
+                .setParameter("criteria", Id)
+                .list();
         sesion.getTransaction().commit();
         return b;
     }
@@ -305,7 +209,7 @@ public class BitaReparacion implements Crud, Serializable {
         sesion.delete(this);
         sesion.getTransaction().commit();
     }
-    
+
     public void update() {
         Session sesion = HibernateHelper.getSessionFactory().openSession();
         sesion.getTransaction().begin();
