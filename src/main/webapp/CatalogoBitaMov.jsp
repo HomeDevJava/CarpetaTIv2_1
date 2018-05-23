@@ -109,18 +109,20 @@
                     <display:column property="bitmovaFolio" title="ID" />
                     <display:column property="bitmovaFecha" title="Fecha" />  
                     <display:column property="bitmovaOrigenId.cedNombre" title="Origen" />  
-                    <display:column property="tblCedis.cedNombre" title="Destino" />  
-                    <display:column property="tblEmpleados.empleadoNombre" title="Destinatario"/>
+                    <display:column property="bitmovaDestinoId.cedNombre" title="Destino" />  
+                    <display:column property="bitmovaIdEmpleado.empleadoNombre" title="Destinatario"/>
                     <display:column property="tblModelos.modNombre" title="Modelo" />
                     <display:column property="bitmovaSerie" title="Serie"/>        
-                    <display:column title="Accion" headerClass="col-1">                          
-                        <c:url value="DeleteBitaMovs.action?Id=${listadeBitaMovs.bitmovaFolio}" var="delBitaRepara"/>
-                        <c:url value="FrmEditBitaMovs.action?Id=${listadeBitaMovs.bitmovaFolio}" var="editBitaRepara"/>
-                        <button value="${editBitaRepara}" class="btn btn-sm btn-outline-info" data-toggle="modal" data-target="#myModalDetalles"><span class="fa fa-edit"></span></a></button>                       
+                    <display:column title="Accion" headerClass="col-2">                          
+                        <c:url value="DeleteBitaMov.action?Id=${listadeBitaMovs.bitmovaFolio}" var="delBitaRepara"/>
+                        <c:url value="FrmEditBitaMov.action?Id=${listadeBitaMovs.bitmovaFolio}" var="editBitaRepara"/>
+                        <c:url value="FrmViewBitaMov.action?Id=${listadeBitaMovs.bitmovaFolio}" var="viewBitaRepara"/>
+                        <button id="Editar" name="Detalles" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModalDetalles" value="${editBitaRepara}"><span class="fa fa-edit"></span></button>
+                                               
                         <a href="${delBitaRepara}" class="btn btn-sm btn-outline-danger"><span class="fa fa-minus-circle"></span></a>                       
-                        <button id="Detalles" name="Detalles" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModalDetalles" value="FrmViewBitaMov.do?IdFolio=${elem.getBitmova_Folio()}"><span class="fa fa-lg fa-eye"></span></button>
-                        <button id="Anexar" name="anexar" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#myModalEvidencia" value="FrmAddFileBitaMov.do?IdFolio=${elem.getBitmova_Folio()}"><span class="fa fa-lg fa-paperclip"></span></button>
-                        <button id="pdf" name="pdf" class="btn btn-sm btn-warning" onclick="window.location.href = 'RptBitaMovFolio.do?IdFolio=${elem.getBitmova_Folio()}'"><span class="fa fa-lg fa-file-pdf"></span></button>
+                        <button id="Detalles" name="Detalles" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModalDetalles" value="${viewBitaRepara}"><span class="fa fa-lg fa-eye"></span></button>
+                        <button id="Anexar" name="anexar" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#myModalEvidencia" value="FrmAddFileBitaMov.action?Id=${elem.getBitmovaFolio()}"><span class="fa fa-lg fa-paperclip"></span></button>
+                        <button id="pdf" name="pdf" class="btn btn-sm btn-warning" onclick="window.location.href = 'RptBitaMovFolio.action?IdFolio=${elem.getBitmova_Folio()}'"><span class="fa fa-lg fa-file-pdf"></span></button>
                     </display:column>
                     <display:setProperty  name="paging.banner.page.separator" value=" | "/>
                     <display:setProperty  name="paging.banner.some_items_found">

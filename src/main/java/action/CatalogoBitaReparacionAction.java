@@ -6,8 +6,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.function.Predicate;
 import javax.servlet.http.HttpServletRequest;
 import model.BitaReparacion;
 import model.TblCedis;
@@ -65,7 +63,7 @@ public class CatalogoBitaReparacionAction extends ActionSupport implements Servl
     public void setIdStatus(Integer IdStatus) { this.IdStatus = IdStatus; }
     
     @Override
-    @Action(value = "CatalogoBitaReparacion", results = {        @Result(name = SUCCESS, type = "dispatcher", location = "/CatalogoBitaReparacion.jsp")})
+    @Action(value = "CatalogoBitaReparacion", results = {@Result(name = SUCCESS, type = "dispatcher", location = "/CatalogoBitaReparacion.jsp")})
     public String execute() {
         listadeBitaReparacion= new ArrayList<>();
         //LISTAR EL CATALOGO COMPLETO DE BITAREPARACION
@@ -128,7 +126,7 @@ public class CatalogoBitaReparacionAction extends ActionSupport implements Servl
         Integer ced = Integer.parseInt(request.getParameter("tblCedis"));
         Integer empl = Integer.parseInt(request.getParameter("tblEmpleados"));
         Integer mod = Integer.parseInt(request.getParameter("tblModelos"));
-        Integer IdStatus = Integer.parseInt(request.getParameter("tblStatusByIdStatus"));
+        Integer IdStatus1 = Integer.parseInt(request.getParameter("tblStatusByIdStatus"));
         Integer IdActa = Integer.parseInt(request.getParameter("tblStatusByIdStatusActa"));
         Integer IdDesc = Integer.parseInt(request.getParameter("tblStatusByIdStatusDescuento"));
         String sserie = request.getParameter("serie");
@@ -139,7 +137,7 @@ public class CatalogoBitaReparacionAction extends ActionSupport implements Servl
         String finit = request.getParameter("fecInitramite");
         String obs = request.getParameter("observaciones");
         String ro = request.getParameter("ro");
-        BitaReparacion reg = new BitaReparacion(ced, empl, mod, IdStatus, IdActa, IdDesc,
+        BitaReparacion reg = new BitaReparacion(ced, empl, mod, IdStatus1, IdActa, IdDesc,
                 sserie, falla, Idtipo, fenvio, fretorno, obs, finit, ro);
         return reg;
     }
