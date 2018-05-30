@@ -3,11 +3,14 @@
 <%@taglib prefix="s" uri="/struts-tags" %>
 
 <form id="formInsert" name="form" action="UpdateBitaMov.action" method="post" class="needs-validation" novalidate >
-    
+     <div class="modal-header bg-primary text-white">
+        <h4>Editar Registro</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>       
+    </div>
     <div class="modal-body form-inline">
         <s:push value="tblbitamov">
         <div class="form-group col-4 my-2">
-            <s:textfield name="bitmovaFolio" />
+            <s:textfield name="bitmovaFolio" type="hidden" />
             <label class="h5 font-weight-bold text-dark date">Fecha</label>
             <s:date format="yyyy-MM-dd" name="getBitmovaFecha()" var="fenvio" />  
             <s:textfield name="bitmovaFecha" class="form-control col-lg-12 is-valid" type="date" format="yyyy-MM-dd" value="%{fenvio}"/>
@@ -50,7 +53,7 @@
             <s:label class="h5 font-weight-bold text-dark" for="bitmovaIdEmpleado" value="Enviado a"/>           
             <s:select name="bitmovaIdEmpleado" cssClass="form-control mr-sm-2" 
                       list="listadeEmpleados" listKey="empleadoId" listValue="empleadoNombre + ' ' + empleadoApellidos"
-                      value="getBitmovaIdEmpleado().getEmpleadoId()" headerValue="getBitmovaIdEmpleado().getEmpleadoNombre()"/>                                        
+                      value="bitmovaIdEmpleado.empleadoId" />                                        
             </select> 
         </div>
 

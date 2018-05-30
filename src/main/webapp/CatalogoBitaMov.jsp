@@ -5,25 +5,22 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags/" %>
 <t:genericpage>
     <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
         (function () {
             'use strict';
+
             window.addEventListener('load', function () {
-                // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                var forms = document.getElementsByClassName('needs-validation');
-                // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (form.checkValidity() === false) {
-                            event.preventDefault();
-                            event.stopPropagation();
-                        }
-                        form.classList.add('was-validated');
-                    }, false);
-                });
+                var form = document.getElementById('needs-validation');
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
             }, false);
-        })
-                ();
-    </script>   
+        })();
+    </script>
 
     <script>
         $(document).ready(function () {
@@ -34,11 +31,23 @@
                     type: 'GET',
                     url: myurl,
                     success: function (data) {
-                        $('#modales').html(data);
+                        $('#detail').html(data);
                     }
                 });
             });
             $('.btn-outline-success').click(function () {
+                var myurl = $(this).val();
+
+                $.ajax({
+                    type: 'GET',
+                    url: myurl,
+                    success: function (data) {
+                        $('#detail').html(data);
+                    }
+                });
+            });
+
+            $('.btn-success').click(function () {
                 var myurl = $(this).val();
 
                 $.ajax({
@@ -57,7 +66,7 @@
                     type: 'GET',
                     url: myurl,
                     success: function (data) {
-                        $('#evidencia').html(data);
+                        $('#detail').html(data);
                     }
                 });
             });
@@ -80,9 +89,9 @@
 
             <div>
                 <div class="form-inline my-2">
-                    <div class="col-3">
-                        <button id="insertar" class=" btn btn-sm btn-success my-2" data-toggle="modal" data-target="#myModalInsert" ><span class="fa fa-plus-circle"></span> Nuevo Registros</button> 
-                        <!--<a id="insert" class=" btn btn-md btn-success my-2" data-toggle="modal" data-target="#myModalInsert" value="jjj" > Insertar Registro</a> -->  
+                    <div class="col-3">  
+                        <s:url action="FrmInsertBitaMov.action" var="urlinsert"/>
+                        <button id="insert" class=" btn btn-sm btn-success my-2" data-toggle="modal" data-target="#myModalDetalles" value="${urlinsert}" > <span class="fa fa-plus-circle"></span> Nuevo Registros</button>
                     </div>
                     <div class="col-3">
                         <form class="form-group form-inline my-auto my-lg-0" action="FiltrarBitaMovSerie.do">
@@ -97,7 +106,7 @@
                             <label class="h5" for="cedis" >Cedis</label>
                             <s:select class=" form-control  form-control-sm mx-sm-2" name="listadeCedis" list="listadeCedis"
                                       listKey="cedId" listValue="cedNombre"/>
-                            <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+
                             <button class="btn btn-sm btn-outline-success my-2 my-sm-0" type="submit"><span class="fa fa-search"></span>Buscar</button>
                         </form>
                     </div>
@@ -113,19 +122,20 @@
                     <display:column property="bitmovaIdEmpleado.empleadoNombre" title="Destinatario"/>
                     <display:column property="tblModelos.modNombre" title="Modelo" />
                     <display:column property="bitmovaSerie" title="Serie"/>        
-                    <display:column title="Accion" headerClass="col-2">                          
+                    <display:column title="Accion" headerClass="col-3">                          
                         <c:url value="DeleteBitaMov.action?Id=${listadeBitaMovs.bitmovaFolio}" var="delBitaRepara"/>
                         <c:url value="FrmEditBitaMov.action?Id=${listadeBitaMovs.bitmovaFolio}" var="editBitaRepara"/>
                         <c:url value="FrmViewBitaMov.action?Id=${listadeBitaMovs.bitmovaFolio}" var="viewBitaRepara"/>
-                        <button id="Editar" name="Detalles" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModalDetalles" value="${editBitaRepara}"><span class="fa fa-edit"></span></button>
-                                               
+                        <button id="Editar" name="Detalles" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModalDetalles" value="${editBitaRepara}" title="Editar Registro"><span class="fa fa-edit"></span></button>
+
                         <a href="${delBitaRepara}" class="btn btn-sm btn-outline-danger"><span class="fa fa-minus-circle"></span></a>                       
                         <button id="Detalles" name="Detalles" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#myModalDetalles" value="${viewBitaRepara}"><span class="fa fa-lg fa-eye"></span></button>
-                        <button id="Anexar" name="anexar" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#myModalEvidencia" value="FrmAddFileBitaMov.action?Id=${elem.getBitmovaFolio()}"><span class="fa fa-lg fa-paperclip"></span></button>
-                        <button id="pdf" name="pdf" class="btn btn-sm btn-warning" onclick="window.location.href = 'RptBitaMovFolio.action?IdFolio=${elem.getBitmova_Folio()}'"><span class="fa fa-lg fa-file-pdf"></span></button>
-                    </display:column>
-                    <display:setProperty  name="paging.banner.page.separator" value=" | "/>
-                    <display:setProperty  name="paging.banner.some_items_found">
+                        <button id="Anexar" name="anexar" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#myModalDetalles" value="FrmAddPDFBitaMov.action?Id=${listadeBitaMovs.getBitmovaFolio()}"><span class="fa fa-lg fa-paperclip"></span></button>
+                        <button id="pdf" name="pdf" class="btn btn-sm btn-warning" onclick="window.location.href = 'RptBitaMovFolio.action?Id=${listadeBitaMovs.getBitmovaFolio()}'"><span class="fa fa-lg fa-file-pdf"></span></button>
+                        <button id="pdf" name="pdf" class="btn btn-sm btn-light" onclick="window.location.href = 'FrmViewPDFBitaMov.action?Id=${listadeBitaMovs.getBitmovaFolio()}'"><span class="fa fa-lg fa-file-pdf"></span></button>
+                        </display:column>
+                        <display:setProperty  name="paging.banner.page.separator" value=" | "/>
+                        <display:setProperty  name="paging.banner.some_items_found">
                         <span class="pagebanner">{0} {1} encontrado, show <span class="h5">{2} to {3}.</span></span>
                     </display:setProperty>
                     <display:setProperty  name="paging.banner.full">
@@ -157,52 +167,14 @@
 
             </div>
         </div>
-    </main>
-    <!-- Modal para Adjuntar Evidencia
-   ***********************************************************************************************************-->
-    <div class="modal fade" id="myModalEvidencia" >
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Anexar Archivo</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>       
-                </div>
-                <div class="modal-body" id="evidencia">
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal para Editar registros
-    ***********************************************************************************************************-->
-    <div class="modal fade" id="myModal" >
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Editar Registro</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>       
-                </div>
-                <div class="modal-body" id="modales">
-
-                </div>
-            </div>
-        </div>
-    </div>
+    </main>   
     <!--Modal para mostrar detalles del folio
     *******************************************************************************************************-->
     <div class="modal fade" id="myModalDetalles" >
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4>Detalles del Registro</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>       
-                </div>
-                <div class="modal-body" id="detail">
+            <div class="modal-content" id="detail">
 
-                </div>
             </div>
         </div>
     </div>
-
-
 </t:genericpage>
